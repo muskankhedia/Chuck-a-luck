@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 var app = angular.module('chuck-a-luck', ['ngRoute']);
-angular.module('ResultPopup', ['ui.bootstrap']);
 
 app.config(function($routeProvider) {
 	$routeProvider
