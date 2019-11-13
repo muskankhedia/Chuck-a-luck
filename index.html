@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html data-ng-app="chuck-a-luck" >
+<head>
+
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Chuck-A-Luck</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    
+</head>
+<body>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="./js/angular.min.js"></script>
+        <script src="./js/angular-route.js"></script>
+        <script src="./js/angular.min.js.map"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
+        <script src="./main.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+        <!-- Include UI Bootstrap library -->
+        <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+        <!-- Include Bootstrap CSS CDN link -->
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <header data-ng-include="'html_components/header.html'"
+        style="height:50px;">
+
+        </header>
+
+        <main data-ng-view id='mainContent' style="
+        margin-top: -40px;
+        margin-bottom: -60px;
+        overflow-x: hidden;" ></main>
+        
+        
+        <footer data-ng-include="'html_components/footer.html'" 
+        style="margin-left: 100px;position: absolute;width: 100%;"></footer>
+    
+</body>
+</html>

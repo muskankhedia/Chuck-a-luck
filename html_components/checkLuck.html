@@ -1,0 +1,51 @@
+<body>
+    <div id="body-container">
+        <div class= "container" >
+            <p>
+                Attempts: {{attempts}}/10
+            </p>
+            <div class = "row">
+                <div id="luckyAttempts">
+                    Lucky Attempts: <span id="lucky">{{luckyAttempt}}</span> 
+                </div>
+                <div id="wrongAttempts">
+                    Wrong Attempts: {{wrongAttempt}}
+                </div>
+            </div>
+        </div>
+        <div id="correctNumber">
+            {{correctAnswer}}
+        </div>
+        <div id ="instruction">
+            Choose a card
+        </div>
+        <div id="choices">
+            <div id="box1" class="box" ng-click = 'boxClicked(1)'>
+                <p id = "value1" class="value">
+                </p>
+            </div>
+            <div id="box2" class="box" ng-click = 'boxClicked(2)'>
+                <p id = "value2" class="value">
+                </p>
+            </div>
+            <div id="box3" class="box" ng-click = 'boxClicked(3)'>
+                <p id = "value3" class="value">
+                </p>
+            </div>
+            <div id="box4" class="box" ng-click = 'boxClicked(4)'>
+                <p id = "value4" class="value">
+                </p>
+            </div>
+        </div>
+        <div id="nextFinish">
+            <button class = "btn btn-primary" id = "nextButton" ng-click="Next()"> 
+                Next
+            </button>
+        </div>
+        <div id="startreset" ng-click = "startGame()">
+            Test Luck
+        </div>
+        <div id="result">
+        </div>
+    </div>
+</body>
