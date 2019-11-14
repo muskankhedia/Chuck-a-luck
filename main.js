@@ -7,6 +7,11 @@ app.config(function($routeProvider) {
 			templateUrl:'./html_components/checkLuck.html',
 			controller:'checkLuck',
 			title:'Chuck-a-Luck',
+        })
+        .when('/help',{
+			templateUrl:'./html_components/instructions.html',
+			controller:'help',
+			title:'Chuck-a-Luck',
         });
 });
 
@@ -20,37 +25,48 @@ app.controller('checkLuck', function($scope) {
     $scope.correctPosition = 0;
     $scope.recentClickId = 0;
     $scope.attempts = 0;
+    $scope.performance = '';
+    $scope.showResult = false;
 
 	$scope.startGame = function() {
-		console.log('start game');
-		if($scope.playing) {
-
-            $scope.score = 0;
-            $scope.attemps = 0;
-			$scope.correctNumber = '';    
-
-		} else {
-
-			$scope.playing = true;
-			$scope.correctNumber = '';
-			$scope.score = 0;
-            document.getElementById('startreset').innerHTML = 'Reset';
-			$scope.generateNumbers();
-		}
+        console.log('start game');
+        $scope.score = 0;
+        $scope.correctAnswer = ''; 
+        $scope.luckyAttempt = 0;
+        $scope.wrongAttempt = 0;
+        $scope.attempts = 0; 
+        $scope.showResult = false;
+        document.getElementById('startreset').innerHTML = 'Reset';
+        document.getElementById('value'+1).style.display = 'none';
+        document.getElementById('value'+2).style.display = 'none';
+        document.getElementById('value'+3).style.display = 'none';
+        
+        if ($scope.playing) {
+            document.getElementById('startreset').innerHTML = 'Take Test';
+            if($scope.recentClickId !== 0) {
+                document.getElementById('box'+$scope.recentClickId).style.background = 'white';
+            }
+            document.getElementById('nextButton').style.display = 'none';
+            $scope.playing = false;
+        } else {
+            $scope.generateNumbers();
+            document.getElementById('nextButton').innerHTML = 'Next';
+            $scope.playing = true;
+        }
 
 	};
 
 	$scope.generateNumbers = function () {
 		$scope.correctAnswer = Math.round(99*Math.random()); //to generate a random number between 0-99
         console.log("correctNumber::", $scope.correctAnswer)
-        $scope.correctPosition = 1 + Math.round(3*Math.random()); // to choose a random position 
+        $scope.correctPosition = 1 + Math.round(2*Math.random()); // to choose a random position 
         console.log("correct position::", $scope.correctPosition)
 		document.getElementById('value' + $scope.correctPosition).innerHTML = $scope.correctAnswer ; //fill one box with the correct answers
     
 		//fill other boxes with wrong answers
         var answers= [$scope.correctAnswer];
         var i;
-		for(i=1 ; i< 5 ;i++){
+		for(i=1 ; i< 4 ;i++){
 			if(i != $scope.correctPosition){
 				$scope.wrongAnswer = 0;
             
@@ -74,7 +90,6 @@ app.controller('checkLuck', function($scope) {
             document.getElementById('value1').style.display = 'block';
             document.getElementById('value2').style.display = 'block';
             document.getElementById('value3').style.display = 'block';
-            document.getElementById('value4').style.display = 'block';
             document.getElementById('box'+id).style.background = 'blue';
             document.getElementById('nextButton').style.display = 'block';
             $scope.attempts++;
@@ -86,7 +101,6 @@ app.controller('checkLuck', function($scope) {
             }
             if ($scope.attempts == 10) {
                 document.getElementById('nextButton').innerHTML = 'Finish';
-                document.getElementById('startreset').innerHTML = 'Test Luck';
             }
         }
     }
@@ -97,13 +111,28 @@ app.controller('checkLuck', function($scope) {
             document.getElementById('value1').style.display = 'none';
             document.getElementById('value2').style.display = 'none';
             document.getElementById('value3').style.display = 'none';
-            document.getElementById('value4').style.display = 'none';
 
             document.getElementById('nextButton').style.display = 'none';
             document.getElementById('box'+$scope.recentClickId).style.background = 'white';
             $scope.generateNumbers();
         } else {
-            document.getElementById('result').innerHTML = $scope.luckyAttempt;
+            if ($scope.luckyAttempt >= 0 && $scope.luckyAttempt < 4) {
+                $scope.performance = 'Bad Luck';
+            } else if ($scope.luckyAttempt > 3 && $scope.luckyAttempt < 7){
+                $scope.performance = 'Good Luck';
+            } else {
+                $scope.performance = 'Excellent Luck';
+            }
+            $scope.showResult = true;
+            document.getElementById('nextButton').style.display = 'none';
+            document.getElementById('startreset').innerHTML = 'Test Luck';
+            document.getElementById('box'+$scope.recentClickId).style.background = 'white';
+            $scope.playing = false;
+
         }
     }
+});
+
+app.controller('help', function($scope) {
+    console.log("In help page")
 });

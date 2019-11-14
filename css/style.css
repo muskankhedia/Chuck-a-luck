@@ -97,7 +97,7 @@
   }
 
 .box{
-  width: 91.5px;
+  width: 141px;
   height: 85px;
   /* display: none; */
   background-color: white;
@@ -114,7 +114,7 @@
 
 .box:hover , #startreset:hover{
   background-color: #9C89F6;
-  color: white;
+  /* color: white; */
   box-shadow: 0px 4px #6b54d3;
 }
 
@@ -124,11 +124,11 @@
   top:4px;
 }
 
-#box4{
-  margin-right: 0;
+#box3 {
+    margin-right: -10px;
 }
-
 .value {
+    padding-left: 40%;
     display: none;
 }
 
@@ -170,4 +170,26 @@
     left: 20px;
     z-index: 2;
     display: none;
+}
+
+.instruction-container {
+  position: relative;
+  margin: 3%;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#gameTitle {
+  text-decoration: none;
+}
+
+#instruction-list {
+  margin-right: 10%;
+}
+
+#resultCont {
+  text-align: center;
+  font-size: 31px;
+  box-sizing: border-box;
+  margin: 9px;
 }

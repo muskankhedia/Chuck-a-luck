@@ -1,5 +1,14 @@
-<body>
-    <div id="body-container">
+<body style="
+margin-top: -40px;
+margin-bottom: -60px;
+overflow-x: hidden;" >
+
+<div id="resultCont" >
+    <span id = "resultText" data-ng-if = "showResult" > 
+        You have a {{performance}}
+    </span>
+    </div>
+    <div id="body-container" style="margin-top: 0%; margin-bottom: 2%;">
         <div class= "container" >
             <p>
                 Attempts: {{attempts}}/10
@@ -19,21 +28,17 @@
         <div id ="instruction">
             Choose a card
         </div>
-        <div id="choices">
-            <div id="box1" class="box" ng-click = 'boxClicked(1)'>
+        <div class = "container" id="choices">
+            <div id="box1" class="row box" ng-click = 'boxClicked(1)'>
                 <p id = "value1" class="value">
                 </p>
             </div>
-            <div id="box2" class="box" ng-click = 'boxClicked(2)'>
+            <div id="box2" class="row box" ng-click = 'boxClicked(2)'>
                 <p id = "value2" class="value">
                 </p>
             </div>
-            <div id="box3" class="box" ng-click = 'boxClicked(3)'>
+            <div id="box3" class="row box" ng-click = 'boxClicked(3)'>
                 <p id = "value3" class="value">
-                </p>
-            </div>
-            <div id="box4" class="box" ng-click = 'boxClicked(4)'>
-                <p id = "value4" class="value">
                 </p>
             </div>
         </div>
@@ -44,8 +49,6 @@
         </div>
         <div id="startreset" ng-click = "startGame()">
             Test Luck
-        </div>
-        <div id="result">
         </div>
     </div>
 </body>
