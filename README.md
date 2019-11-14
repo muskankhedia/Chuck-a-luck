@@ -17,7 +17,8 @@ npm start
 * **Front-end** AngularJS
 
 ## Demo video
-Click on this [link](https://drive.google.com/file/d/1nQt_zhbrEshuPS6TShWQj6jrzjnohlIQ/view) to watch a demo on the application.
+Click on this [link](https://drive.google.com/open?id=1nQt_zhbrEshuPS6TShWQj6jrzjnohlIQ) to watch a demo on the application.
+
 
 ## :gem: Contributors
 [Muskan Khedia](https://github.com/muskankhedia)
