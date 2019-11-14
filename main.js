@@ -27,6 +27,7 @@ app.controller('checkLuck', function($scope) {
     $scope.attempts = 0;
     $scope.performance = '';
     $scope.showResult = false;
+    $scope.disable = true;
 
 	$scope.startGame = function() {
         console.log('start game');
@@ -36,6 +37,7 @@ app.controller('checkLuck', function($scope) {
         $scope.wrongAttempt = 0;
         $scope.attempts = 0; 
         $scope.showResult = false;
+        $scope.disable = true;
         document.getElementById('startreset').innerHTML = 'Reset';
         document.getElementById('value'+1).style.display = 'none';
         document.getElementById('value'+2).style.display = 'none';
@@ -80,17 +82,19 @@ app.controller('checkLuck', function($scope) {
                 answers.push($scope.wrongAnswer);
 			}
 		}
+        $scope.disable = false;
 
     };
     
     $scope.boxClicked = function (id) {
         $scope.recentClickId = id;
+        $scope.disable = true;
         if ($scope.playing == true) {
             let value = document.getElementById('value' + id).innerHTML;
             document.getElementById('value1').style.display = 'block';
             document.getElementById('value2').style.display = 'block';
             document.getElementById('value3').style.display = 'block';
-            document.getElementById('box'+id).style.background = 'blue';
+            document.getElementById('box'+id).style.background = '#03A9F4';
             document.getElementById('nextButton').style.display = 'block';
             $scope.attempts++;
             console.log("attempts::", $scope.attempts)
@@ -108,6 +112,7 @@ app.controller('checkLuck', function($scope) {
     $scope.Next = function () {
 
         if ($scope.attempts < 10 ) {
+            
             document.getElementById('value1').style.display = 'none';
             document.getElementById('value2').style.display = 'none';
             document.getElementById('value3').style.display = 'none';

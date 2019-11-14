@@ -120,7 +120,7 @@
 
 .box:active , #startreset:active{
 
-  box-shadow: 0px 0px #6b54d3;
+  box-shadow: 0px 0px #8974e7;
   top:4px;
 }
 
@@ -189,7 +189,7 @@
 
 #resultCont {
   text-align: center;
-  font-size: 31px;
+  font-size: 27px;
   box-sizing: border-box;
   margin: 9px;
 }
